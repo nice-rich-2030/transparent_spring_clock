@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>観賞用スプリング式時計</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <div id="app">
+    <header id="header" class="header menu-bar hidden">
+      <h1 class="header__title">観賞用スプリング式時計</h1>
+      <div class="header__buttons">
+        <button id="btn-help" class="header__btn" title="ヘルプ">?</button>
+        <button id="btn-settings" class="header__btn" title="設定">&#9881;</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <div id="canvas-container" class="canvas-container"></div>
+    </main>
+
+    <footer id="footer" class="footer menu-bar hidden">
+      <div class="footer__controls">
+        <button id="btn-front" class="footer__btn">正面</button>
+        <button id="btn-back" class="footer__btn">裏面</button>
+        <button id="btn-side" class="footer__btn">側面</button>
+        <button id="btn-movement" class="footer__btn">機構</button>
+        <button id="btn-auto-rotate" class="footer__btn" title="自動回転">&#x1F504;</button>
+      </div>
+      <div class="footer__info">
+        <span id="current-time" class="footer__time">--:--:-- JST</span>
+        <span id="fps-counter" class="footer__fps">-- FPS</span>
+      </div>
+    </footer>
+
+    <div id="tooltip" class="tooltip hidden">
+      <div id="tooltip-title" class="tooltip__title"></div>
+      <div id="tooltip-description" class="tooltip__description"></div>
+    </div>
+
+    <div id="help-dialog" class="dialog hidden">
+      <div class="dialog__content">
+        <div class="dialog__header">
+          <h2>ヘルプ</h2>
+          <button class="dialog__close">&times;</button>
+        </div>
+        <div class="dialog__body">
+          <h3>カメラ操作</h3>
+          <ul>
+            <li>左ドラッグ: 回転</li>
+            <li>右ドラッグ: 平行移動</li>
+            <li>ホイール: ズーム</li>
+          </ul>
+          <h3>部品情報</h3>
+          <ul>
+            <li>部品にマウスを乗せると詳細表示</li>
+          </ul>
+          <h3>視点切替</h3>
+          <ul>
+            <li>画面下のボタンで素早く移動</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="settings-dialog" class="dialog hidden">
+      <div class="dialog__content">
+        <div class="dialog__header">
+          <h2>設定</h2>
+          <button class="dialog__close">&times;</button>
+        </div>
+        <div class="dialog__body">
+          <label class="setting">
+            <span>パフォーマンスモード</span>
+            <input type="checkbox" id="setting-performance">
+          </label>
+          <label class="setting">
+            <span>ワイヤーフレーム表示</span>
+            <input type="checkbox" id="setting-wireframe">
+          </label>
+          <label class="setting">
+            <span>座標軸表示</span>
+            <input type="checkbox" id="setting-axes">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div id="webgl-error" class="error-message hidden">
+      <p>お使いのブラウザはWebGLに対応していません。</p>
+      <p>Chrome、Firefox、Safari、Edgeの最新版をお使いください。</p>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
